@@ -1,4 +1,4 @@
-int count=100;
+int count=150;
 PVector [] loc=new PVector [count];
 PVector [] vel=new PVector [count];
 PVector [] acc=new PVector [count];
@@ -7,6 +7,8 @@ float[] sz= new float[count];
 
 void setup() {
   size(800, 600);
+  noStroke();
+  colorMode(HSB, 360,100,100,100);
   for (int i=0; i<count; i++) {
     sz[i]=random(20, 40);
     loc[i] = new PVector(random(sz[i], width-sz[i]), random(sz[i], height-sz[i])); 
@@ -15,7 +17,10 @@ void setup() {
   }
 }
 void draw() {
-  background(0);
+fill(0,15);
+rect(0,0,width,height);
+noStroke();
+
   for (int i=0; i<count; i++) {
     vel[i].add(acc[i]);
     loc[i].add(vel[i]);
@@ -26,20 +31,25 @@ void draw() {
           if (loc[i].x<loc[j].x) {
             vel[i].x=-abs(vel[i].x);
             vel[j].x=abs(vel[j].x);
+            fill(random(225),0,0);
           } else {
             vel[i].x=abs(vel[i].x);
             vel[j].x=-abs(vel[j].x);
+            fill(0,random(255),0);
           }
           if (loc[i].y < loc[j].y) {
             vel[i].y=-abs(vel[i].y);
             vel[j].y=abs(vel[j].y);
+            fill(0,0,random(255));
           } else {
             vel[i].y=abs(vel[i].y);
             vel[j].y=-abs(vel[j].y);
+            fill(random(255),random(255),random(255));
           }
         }
       }
     }
+    fill(frameCount%360,100,100);
     ellipse(loc[i].x, loc[i].y, sz[i], sz[i]);
 
     if (loc[i].x+sz[i]/2>width||loc[i].x-sz[i]/2<0) {
