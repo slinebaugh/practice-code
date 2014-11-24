@@ -8,9 +8,9 @@ float[] sz= new float[count];
 void setup() {
   size(800, 600);
   noStroke();
-  colorMode(HSB, 360,100,100,100);
+ // colorMode(HSB, 360,100,100,100);
   for (int i=0; i<count; i++) {
-    sz[i]=random(20, 40);
+    sz[i]=random(3, 10);
     loc[i] = new PVector(random(sz[i], width-sz[i]), random(sz[i], height-sz[i])); 
     vel[i]= PVector.random2D();
     acc[i]= new PVector(0, 0);
@@ -49,7 +49,8 @@ noStroke();
         }
       }
     }
-    fill(frameCount%360,100,100);
+   // fill(255);
+    fill(237,224,105);
     ellipse(loc[i].x, loc[i].y, sz[i], sz[i]);
 
     if (loc[i].x+sz[i]/2>width||loc[i].x-sz[i]/2<0) {
