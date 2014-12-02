@@ -1,30 +1,24 @@
-ball b;
-ball c;
+int count= 200;
+Ball [] b= new Ball [count];
+
+
 void setup() {
- for(int i=0; i<width; i++){
-   
-  size(800, 600);
-  colorMode(HSB, 360, 100, 100, 100);
-  b = new ball();
-  b.display();
-  b.move();
-  b.bounce();
-  c = new ball();
-   c.display();
-  c.move();
-  c.bounce();
- }
+    size(800, 600);
+    colorMode(HSB, 360, 100, 100, 100);
+  for (int i=0; i<count; i++) {
+
+    
+    b[i] = new Ball();
+  }
 }
 
 void draw() {
   background(0);
-  b.display();
-  b.move();
-  b.bounce();
+  for (int i=0; i<count; i++) {
   
-   c.display();
-  c.move();
-  c.bounce();
-
+    b[i].display();
+    b[i].move();
+    b[i].bounce();
+  }
 }
 
