@@ -11,8 +11,8 @@ Ball(){
   //initialize variable
   loc = new PVector(width/2, random(height));
   vel = new PVector(random(-3,3),random(-1,0));
-  acc = new PVector(.001, .01);
-  sz = random(10);
+  acc = new PVector(.005, .01);
+  sz = 10;
   hue = random(360);
 }
 //void bounce(){
