@@ -34,6 +34,7 @@ class Bouncer {
   }
 
   void display() {
+    fill(random(255),random(255),random(255));
     ellipse(loc.x, loc.y, sz, sz);
   }
 
