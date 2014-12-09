@@ -1,4 +1,4 @@
-Bouncer[] bouncers = new Bouncer[100];
+Bouncer[] bouncers = new Bouncer[30];
 void setup() {
   size(800, 600);
   for (int i = 0; i < bouncers.length; i++) {
@@ -8,6 +8,7 @@ void setup() {
 
 void draw() {
   background(0);
+  fill(255);
   for (int i = 0; i < bouncers.length; i++) {
     bouncers[i].display();
     bouncers[i].move();
@@ -34,7 +35,7 @@ class Bouncer {
   }
 
   void display() {
-    fill(random(255),random(255),random(255));
+    
     ellipse(loc.x, loc.y, sz, sz);
   }
 
@@ -45,19 +46,21 @@ class Bouncer {
   void wallBounce() {
     if (loc.x + sz/2 > width || loc.x - sz/2 < 0) {
       vel.x *= -1;
+     //fill(255,0,0);
     } 
     if (loc.y + sz/2 > height || loc.y - sz/2 < 0) {
       vel.y *= -1;
+      //fill(0,0,255);
     }
   }
 
   void collideWith(Bouncer someOtherBall) {
-    //to make the balls bounce off each other, check the distance between their centers
-    //if the distance is less than the sum of their radii, they're touching and should bounce
+   
     if (loc.dist(someOtherBall.loc) < sz/2 + someOtherBall.sz/2) {
       vel = PVector.sub(loc, someOtherBall.loc);
       vel.normalize();
       vel.setMag(speed);
+      fill(255,0,0);
     }
   }
 }
