@@ -1,21 +1,15 @@
 //declare array list
 ArrayList<Particle> dust= new ArrayList<Particle>();
-//declare bouncy ball array
-Bouncyball[] balls= new Boncyball[200];
-//declare black hole
-Blackhole=h;
+float decay=1;
+
+
 //declare image
 PImage land;
 PImage tink;
 
 void setup() {
-  //color mode
-  colorMode(HSB, 360,100,100,100);
-  //initialize h
-  h= new Blackhole();
-  for(int i=0; i<balls.length; i++){
-    balls[i]= new Particles(random(5,60), random(.1,10);
-  }
+ 
+
   //load images
   land= loadImage("neverland.jpg");
   tink= loadImage("tinkerbell.png");
@@ -40,18 +34,14 @@ void draw() {
       dust.remove(i);
     }
   }
-  for(int i=0; i<balls.length; i++){
-  h.consume(dust[i]);
-  balls[i].display();
-  balls[i].isSuckedIn(h);
-balls[i]move();
 
-  }
   //draw fairy image
 
   image(tink,mouseX,mouseY,100,100);
 
 }
+void mousePressed(){
 
+}
 
 
